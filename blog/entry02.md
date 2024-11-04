@@ -1,5 +1,6 @@
 # Entry 2
-##### X/X/XX
+##### Benson Jiang
+##### 11/4/2024
 
 Text
 
