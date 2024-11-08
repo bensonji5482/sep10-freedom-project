@@ -9,7 +9,7 @@ Chess, a topic I decided to write about, is a game played by many people around 
 I am currently on the second (`Research the problem`) and third (`Brainstorm possible solutions`) stage of the process. By researching the problem I can find what needs to be put into the FP (`Freedom Project`). I put what I need to put into the freedom project along with notes to design and make my freedom project. I am still trying to find useful things to put in the freedom project to make things look more colorful and I figured out my pros and cons for the topic of chess.
 
 ## Skills I learned
-I learned how to see what a useful website is. Examples can be websites that has `.org`, `.edu`, uses `https` in website links and `no pop-up ads` in the website.
+I learned how to see what a useful website is. Examples can be websites that has `.org`, `.edu`, uses `https` in website links and `no pop-up ads` in the website. I learned how to use `time mangagement` in a way by taking things I get from website I searched and simplified them to make them shorter and more understandable.
 
 [Previous](entry01.md) | [Next](entry03.md)
 
