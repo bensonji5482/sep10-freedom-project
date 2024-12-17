@@ -1,8 +1,16 @@
-# Entry 3
-##### X/X/XX
+# Entry 2
+##### Benson Jiang
+##### 12/17/2024
 
-Text
+## Content about my topic (chess)
 
-[Previous](entry02.md) | [Next](entry04.md)
+
+## EDP (Engineering Design Process)
+
+
+## Skills I learned
+
+
+[Previous](entry01.md) | [Next](entry03.md)
 
 [Home](../README.md)
