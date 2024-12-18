@@ -3,7 +3,7 @@
 ##### 12/17/2024
 
 ## Content about my topic (chess)
-
+What I have been starting to do about chess is to make different sections 
 
 ## EDP (Engineering Design Process)
 
