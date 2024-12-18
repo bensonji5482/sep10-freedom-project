@@ -3,10 +3,10 @@
 ##### 12/17/2024
 
 ## Content about my topic (chess)
-Chess is a game played for many years as people have many experience with it. I am trying to find what inventions exist today and what may exist in the future and what would change about the world of chess as years and days progress on. I started to write about things that exist today and what thing will do in the future
+Chess is a game played for many years as people have many experience with it. I am trying to find what inventions exist today and what may exist in the future and what would change about the world of chess as years and days progress on. I started to write about things that exist today and what things will exist in the future as well as what people do in the future. I learned that as people make more and more technologies for chess, they tend to improve over time and as time passes people make more and more technologies that defy our imagination and our processes.
 
 ## EDP (Engineering Design Process)
-What I have been starting to do about chess is to make different sections 
+What I have been starting to do about chess is to make different sections for outling the freedom project that I am trying to make. I set it up by what my topic is, technologies that exists in the modern day which is part A, technologies that might exist in near future as time rolls around and I can maybe put a conclusion or basically an ending to all the content. 
 
 ## Skills I learned
 
