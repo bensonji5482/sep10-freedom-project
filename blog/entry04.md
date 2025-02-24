@@ -1,5 +1,6 @@
 # Entry 4
-##### X/X/XX
+##### Benson Jinag
+##### 2/24/2025
 
 Text
 
