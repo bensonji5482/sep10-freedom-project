@@ -20,7 +20,7 @@ This code above is how I first started to see in Aframe (the numbers are modifie
 This is what I added as a tetrahedron is a trianglar pyramid in Geometry. In order to add this shape I first tried using pyramid rather than tetrahedron given that I didn't know the word or what it was actually called in Aframe I tried it and it didn't work as no other shapes showed up and this was before I added the code of the cone to the snippet.
 
 ## Skills
-The skills that I learned is how to be patient because without many sources to use and learn from I always try to think outside of what I can do as I look around to see things I hope I can do which can eventually be put into Aframe. The second skill that I learned is 
+The skills that I learned is how to `be patient` because without many sources to use and learn from I always `try to think outside` of what I can do as I look around to see things I hope I can do which can eventually be put into Aframe. The second skill that I learned is `better organize my notes` because as I learn more and more things I end up needing more notes to look from which can then help learn Aframe myself better.
 
 [Previous](entry03.md) | [Next](entry05.md)
 
