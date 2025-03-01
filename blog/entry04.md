@@ -3,7 +3,7 @@
 ##### 2/24/2025
 
 ## Tool Chosen
-The tool that I chose is AFrame and the way I tinkered with it is by testing what the code does and how it changes the simulation after I test the simulation by using `http-server` in my IDE as I thinkered the AFrame code there. I learned some things about AFrame which I learned can help support me later on as I move forward in class. The 3 things I fist learned is that the 1st number controls the direction the shape is moving left and right, the 2nd number controls the shape up and down and 3rd number controls moves the shape forward and backward in the perspective when you first spawn into the simulation.
+The tool that I chose is AFrame and the way I tinkered with it is by testing what the code does and how it changes the simulation after I test the simulation by using `http-server` in my IDE as I thinkered the AFrame code there. I learned some things about AFrame which I learned can help support me later on as I move forward in class. The 3 things I fist learned is that the 1st number controls the direction the shape is moving left and right, the 2nd number controls the shape up and down and 3rd number controls moves the shape forward and backward in the perspective when you first spawn into the simulation. I couldn't find any sources that really helped me use Aframe so I tried learning what I can do with Aframe by myself and with my cousin that took this class before.
 
 ### Ways I tinkered with Aframe
 ```language
@@ -18,6 +18,9 @@ This code above is how I first started to see in Aframe (the numbers are modifie
 <a-cone position="2 0.5 -3" radius="0.5" height="1.5" color="green"></a-cone>
 ```
 This is what I added as a tetrahedron is a trianglar pyramid in Geometry. In order to add this shape I first tried using pyramid rather than tetrahedron given that I didn't know the word or what it was actually called in Aframe I tried it and it didn't work as no other shapes showed up and this was before I added the code of the cone to the snippet.
+
+## Skills
+The skills that I learned is how to be patient because without many sources to use and learn from I always try to think outside of what I can do as I look around to see things I hope I can do which can eventually be put into Aframe. The second skill that I learned is 
 
 [Previous](entry03.md) | [Next](entry05.md)
 
