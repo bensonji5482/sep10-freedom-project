@@ -22,7 +22,7 @@
 <a-cone position="2 0.5 -3" radius="0.5" height="1.5" color="green"></a-cone>
 <a-sky color="lightblue"></a-sky>
 ```
-* The first four were original shapes of the simulation while I modified the numbers. I ended up learning 
+* The first four were original shapes of the simulation while I modified the numbers. I ended up learning 2 new shapes for the simulation and learned how to change sky color with it already being there at the start.
 
 ### X/X/XX:
 * Text
