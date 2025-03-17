@@ -24,8 +24,14 @@
 ```
 * The first four were original shapes of the simulation while I modified the numbers. I ended up learning 2 new shapes for the simulation and learned how to change sky color with it already being there at the start.
 
-### X/X/XX:
-* Text
+### 3/10/25:
+#### Found a source to help me with Aframe
+* I found a source that helps me with aframe and I found the source because I wanted shapes and I searched `all shapes in aframe` on google and I found this [github file](https://github.com/aframevr/aframe/blob/master/docs/components/geometry.md) that had everything about the most or all the components of Aframe and that helped me with shapes because I ended up learning more shapes in aframe which ma come in handy in the future.
+```langauge
+<a-torus position="1 3 -4" radius="0.75" height="0.5" color="cyan"></a-torus>
+<a-octahedron position="3 1 -7" radius="0.75" height="1.5" color="green"></a-octahedron>
+```
+* I learned new shapes such as the `torus` which is a 3d verison of a `ring` and a `octahedron which is a 3d verison of a `diamond` and I plan to use most of the shapes that I can find it the [github file](https://github.com/aframevr/aframe/blob/master/docs/components/geometry.md) and to study the components on days that I have to do the freedom project specifically speaking as `Freedom Mondays.`
 
 
 <!-- 
