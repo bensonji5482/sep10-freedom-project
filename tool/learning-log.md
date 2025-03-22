@@ -35,7 +35,13 @@
 
 ### 3/17/2025
 #### Challenges that I have
-* First i noticed 
+* First I noticed that I am only using some 3d shapes and I thought to try and use some 2d shapes so I did and the problem being is that i tried to make the shape show 2 ways instead of showing just one direction and I found no solution to it as that is a big problem for me because I can't show my design for my topic properly. And the thing I did was ...
+```langauge
+<a-ring position="8 3 -2" radius="0.75" height="0.5" color="cyan"></a-ring>
+<a-circle position="3 2 -7" radius="0.75" height="1.5" color="green"></a-circle>
+<a-triangle position="4 2 -6" radius="0.75" height="1.5" color="red"></a-triangle>
+```
+* I made my resolve to try and see if there may be solutions to fix my problem after seeing what I had to deal with. I will also try to tinker a bit more often so I can understand the material better.
 
 
 <!-- 
