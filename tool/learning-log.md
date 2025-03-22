@@ -33,6 +33,10 @@
 ```
 * I learned new shapes such as the `torus` which is a 3d verison of a `ring` and a `octahedron` which is a 3d verison of a `diamond` and I plan to use most of the shapes that I can find it the `[github file]`(https://github.com/aframevr/aframe/blob/master/docs/components/geometry.md) and to study the components on days that I have to do the freedom project specifically speaking as `Freedom Mondays.`
 
+### 3/17/2025
+#### Challenges that I have
+* First i noticed 
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
