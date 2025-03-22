@@ -31,7 +31,7 @@
 <a-torus position="1 3 -4" radius="0.75" height="0.5" color="cyan"></a-torus>
 <a-octahedron position="3 1 -7" radius="0.75" height="1.5" color="green"></a-octahedron>
 ```
-* I learned new shapes such as the `torus` which is a 3d verison of a `ring` and a `octahedron` which is a 3d verison of a `diamond` and I plan to use most of the shapes that I can find it the `[github file]`(https://github.com/aframevr/aframe/blob/master/docs/components/geometry.md) and to study the components on days that I have to do the freedom project specifically speaking as `Freedom Mondays.`
+* I learned new shapes such as the `torus` which is a 3d verison of a `ring` and a `octahedron` which is a 3d verison of a `diamond` and I plan to use most of the shapes that I can find it the [github file](https://github.com/aframevr/aframe/blob/master/docs/components/geometry.md) and to study the components on days that I have to do the freedom project specifically speaking as `Freedom Mondays.`
 
 ### 3/17/2025
 #### Challenges that I have
