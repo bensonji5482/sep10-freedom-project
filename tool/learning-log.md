@@ -43,6 +43,9 @@
 ```
 * I made my resolve to try and see if there may be solutions to fix my problem after seeing what I had to deal with. I will also try to tinker a bit more often so I can understand the material better.
 
+### 3/24/2025
+#### Things I started to do and some more thing I learned
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
