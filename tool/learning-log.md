@@ -128,6 +128,21 @@ Each plane represents one square of the chessboard which took much effort to pro
 ```
 This also helped me make the board otherwise I would have a hard time figuring out directions of where each square goes to a certain postion.
 
+### 3/31/2024
+#### Challenges that I starting to face
+When I made my chessboard as seen above I went ahead and attempted to make another one to the left of it but smaller for one of my inventions in the freedom project. I started having trouble with the first line and I plan to fix it when I am tinkering. The problem is that the directions of the pieces are going left and right because I was trying to do them like how I did it before which was a big mistake and before long I messed up on my code. This means yhat I have to learn my directions for the pieces to get control of it back again so by tinkering I can fix it.
+
+```language
+<a-plane position="-16 -3 -18" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+<a-plane position="-14 -3 -18" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+<a-plane position="-12 -3 -18" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+<a-plane position="10 -3 -18" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+<a-plane position="12 -3 -18" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+<a-plane position="14 -3 -18" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+<a-plane position="16 -3 -18" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+<a-plane position="18 -3 -18" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+```
+
 
 <!-- 
 * Links you used today (websites, videos, etc)
