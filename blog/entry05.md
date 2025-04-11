@@ -1,7 +1,7 @@
 # Entry 5
-##### X/X/XX
+##### 3/11/2025
 
-Text
+### Preparing
 
 [Previous](entry04.md) | [Next](entry06.md)
 
