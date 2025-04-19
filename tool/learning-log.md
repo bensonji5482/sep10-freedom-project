@@ -128,7 +128,7 @@ Each plane represents one square of the chessboard which took much effort to pro
 ```
 This also helped me make the board otherwise I would have a hard time figuring out directions of where each square goes to a certain postion.
 
-### 3/31/2024
+### 3/31/2025
 #### Challenges that I starting to face
 When I made my chessboard as seen above I went ahead and attempted to make another one to the left of it but smaller for one of my inventions in the freedom project. I started having trouble with the first line and I plan to fix it when I am tinkering. The problem is that the directions of the pieces are going left and right because I was trying to do them like how I did it before which was a big mistake and before long I messed up on my code. This means yhat I have to learn my directions for the pieces to get control of it back again so by tinkering I can fix it.
 
@@ -142,6 +142,18 @@ When I made my chessboard as seen above I went ahead and attempted to make anoth
 <a-plane position="16 -3 -18" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
 <a-plane position="18 -3 -18" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
 ```
+
+### 4/7/2025
+#### Things I started learning while making chess pieces as my topic for freedom project
+I started using some shape combinations when I was trying to make my pieces. For example when I made my bishop I used 1 sphere and 2 cones with the cones being on the bottom and stacked on top of each other while the sphere stayed at top. The code that I used to make my bishop while tinkering in aframe is shown below this text.
+
+```language
+<a-plane position="-23 -3 -8" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+<a-cone position="-23 -2.5 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="1.1"></a-cone>
+<a-cone position="-23 -2 -8" geometry="radiusBottom: 0.32; radiusTop: 0.1" color="#22BCF2" height="1.1"></a-cone>
+<a-sphere position="-23 -1.8 -8" radius="0.25" color="#22BCF2"></a-sphere>
+```
+The plane shown is for where the bishop is placed on the board, the cone that comes first stays at the very bottom barely touching the plane, next the second cone that comes is stacking on top of the first cone making its shape, lastly the sphere that is shown up top is somewhat below the top of the second cone to make the bishop look like it has 2 spheres on top to also make it more similar and alike to the bishop that is normally used in chess.
 
 
 <!-- 
