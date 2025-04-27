@@ -1,56 +1,290 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chess World</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="style.css" rel="stylesheet" type="text/css" />
-        <style>
-            /* CSS */
+  <style>
+    /* General Styling */
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1020;
+      background-color: white;
+      padding: 0.7rem 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0d6efd;
+    }
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      margin-right: 1rem;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #0d6efd;
+    }
+    .btn-primary {
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+    }
 
-        </style>
+    /* Collapsed Navbar Scroll */
+    @media (max-width: 991.98px) {
+      .navbar-collapse {
+        max-height: 70vh;
+        overflow-y: auto;
+        margin-top: 0.5rem;
+        background: white;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      .navbar-collapse::-webkit-scrollbar {
+        width: 6px;
+      }
+      .navbar-collapse::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      .navbar-collapse::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border-radius: 10px;
+      }
+      .navbar-collapse::-webkit-scrollbar-thumb:hover {
+        background: #888;
+      }
+    }
 
-        <title>Title</title>
-    </head>
-    <body>
-        <!-- HTML -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-            <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <header class="masthead">
-            <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
-                <div class="d-flex justify-content-center">
-                    <div class="text-center">
-                        <h1 class="mx-auto my-0 text-uppercase">Introducing Chess</h1>
-                        <h2 class="text-white-50 mx-auto mt-2 mb-5">A board game played for many years</h2>
-                        <a class="btn btn-primary" href="#about">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </header>
+    /* Scroll Progress Bar */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #0d6efd, #00c6ff, #00ff90);
+      background-size: 300% 300%;
+      animation: gradientMove 6s ease infinite;
+      z-index: 2000;
+      transition: width 0.2s ease-out;
+      border-radius: 0 5px 5px 0;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
+    /* Section Styling */
+    .placeholder {
+      background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s forwards;
+    }
+    .img-placeholder {
+      background: #d0d0d0;
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .img-placeholder:hover {
+      transform: scale(1.05);
+    }
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s forwards;
+      animation-delay: 0.2s;
+    }
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- <script src="script.js"></script> -->
-        <script>
-            // JS
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      .navbar {
+        background-color: #1f1f1f;
+        box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+      }
+      .navbar-brand {
+        color: #0d6efd;
+      }
+      .navbar-nav .nav-link {
+        color: #e0e0e0;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #66b2ff;
+      }
+      .navbar-collapse {
+        background: #1f1f1f;
+      }
+      .placeholder {
+        background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
+        color: white;
+      }
+      .img-placeholder {
+        background: #444;
+      }
+    }
+  </style>
+</head>
 
-        </script>
-    </body>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm">
+  <div class="container">
+    <a class="navbar-brand" href="#home">Chess</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#learn">Learn</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tournaments">Tournaments</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+      </ul>
+      <div class="d-flex ms-lg-3">
+        <a href="#getstarted" class="btn btn-primary">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Sections -->
+<div id="home" class="container my-5">
+  <div class="placeholder">🏰 Welcome to Chess World</div>
+</div>
+
+<div id="learn" class="container mb-5">
+  <div class="row g-4 align-items-center">
+    <div class="col-md-4">
+      <div class="img-placeholder">♟️</div>
+    </div>
+    <div class="col-md-8">
+      <div class="placeholder" style="height: 150px;">Learn the Art of Chess</div>
+    </div>
+  </div>
+</div>
+
+<div id="tournaments" class="container mb-5">
+  <h2 class="text-center section-title">3 things about chess</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="placeholder">Card 1</div>
+    </div>
+    <div class="col-md-4">
+      <div class="placeholder">Card 2</div>
+    </div>
+    <div class="col-md-4">
+      <div class="placeholder">Card 3</div>
+    </div>
+  </div>
+</div>
+
+<div id="about" class="container mb-5">
+  <div class="row g-5">
+    <div class="col-md-6">
+      <h5 class="text-center mb-3 fw-bold">Inventions Past</h5>
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="img-placeholder">Img</div>
+        </div>
+        <div class="col-6">
+          <div class="img-placeholder">Img</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h5 class="text-center mb-3 fw-bold">Future Innovations</h5>
+      <div class="row g-3">
+        <div class="col-6">
+          <div class="img-placeholder">Img</div>
+        </div>
+        <div class="col-6">
+          <div class="img-placeholder">Img</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="getstarted" class="container mb-5">
+  <div class="placeholder">Designs</div>
+</div>
+
+<div id="faq" class="container mb-5">
+  <h2 class="text-center section-title">🤔 FAQs About Chess</h2>
+  <div class="row g-4">
+    <div class="col-6 col-md-3">
+      <div class="placeholder">How to Begin?</div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="placeholder">What is Checkmate?</div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="placeholder">Tips to Improve</div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="placeholder">Best Openings</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scroll Script -->
+<script>
+  window.onscroll = function() {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+  };
+</script>
+
+</body>
 </html>
