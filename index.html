@@ -1,290 +1,603 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chess World</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+        <title>Chess World</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
 
-  <style>
-    /* General Styling */
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1020;
-      background-color: white;
-      padding: 0.7rem 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: #0d6efd;
-    }
-    .navbar-nav .nav-link {
-      font-weight: 500;
-      margin-right: 1rem;
-      color: #333;
-      transition: color 0.3s ease;
-    }
-    .navbar-nav .nav-link:hover {
-      color: #0d6efd;
-    }
-    .btn-primary {
-      border-radius: 8px;
-      padding: 0.4rem 1rem;
-    }
+        <style>
+            /* General Styling */
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: "Poppins", sans-serif;
+                text-align: center;
+            }
+            html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-    /* Collapsed Navbar Scroll */
-    @media (max-width: 991.98px) {
-      .navbar-collapse {
-        max-height: 70vh;
-        overflow-y: auto;
-        margin-top: 0.5rem;
-        background: white;
-        border-radius: 10px;
-        padding: 1rem;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      }
-      .navbar-collapse::-webkit-scrollbar {
-        width: 6px;
-      }
-      .navbar-collapse::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-      }
-      .navbar-collapse::-webkit-scrollbar-thumb {
-        background: #c0c0c0;
-        border-radius: 10px;
-      }
-      .navbar-collapse::-webkit-scrollbar-thumb:hover {
-        background: #888;
-      }
-    }
+            .navbar {
+                position: sticky;
+                top: 0;
+                z-index: 1020;
+                background-color: white;
+                padding: 0.7rem 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            }
+            .navbar-brand {
+                font-weight: 700;
+                font-size: 1.5rem;
+                color: #0d6efd;
+            }
+            .navbar-nav .nav-link {
+                font-weight: 500;
+                margin-right: 1rem;
+                color: #333;
+                transition: color 0.3s ease;
+            }
+            .navbar-nav .nav-link:hover {
+                color: #0d6efd;
+            }
+            .btn-primary {
+                border-radius: 8px;
+                padding: 0.4rem 1rem;
+            }
 
-    /* Scroll Progress Bar */
-    #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 4px;
-      background: linear-gradient(90deg, #0d6efd, #00c6ff, #00ff90);
-      background-size: 300% 300%;
-      animation: gradientMove 6s ease infinite;
-      z-index: 2000;
-      transition: width 0.2s ease-out;
-      border-radius: 0 5px 5px 0;
-    }
-    @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
+            /* Collapsed Navbar Scroll */
+            @media (max-width: 991.98px) {
+                .navbar-collapse {
+                    max-height: 70vh;
+                    overflow-y: auto;
+                    margin-top: 0.5rem;
+                    background: white;
+                    border-radius: 10px;
+                    padding: 1rem;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+                }
+                .navbar-collapse::-webkit-scrollbar {
+                    width: 6px;
+                }
+                .navbar-collapse::-webkit-scrollbar-track {
+                    background: #f1f1f1;
+                    border-radius: 10px;
+                }
+                .navbar-collapse::-webkit-scrollbar-thumb {
+                    background: #c0c0c0;
+                    border-radius: 10px;
+                }
+                .navbar-collapse::-webkit-scrollbar-thumb:hover {
+                    background: #888;
+                }
+            }
 
-    /* Section Styling */
-    .placeholder {
-      background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 1s forwards;
-    }
-    .img-placeholder {
-      background: #d0d0d0;
-      width: 100%;
-      height: 150px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-    }
-    .img-placeholder:hover {
-      transform: scale(1.05);
-    }
-    .section-title {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeInUp 1s forwards;
-      animation-delay: 0.2s;
-    }
+            /* Scroll Progress Bar */
+            #progress-bar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 4px;
+                background: linear-gradient(90deg, #0d6efd, #00c6ff, #00ff90);
+                background-size: 300% 300%;
+                animation: gradientMove 6s ease infinite;
+                z-index: 2000;
+                transition: width 0.2s ease-out;
+                border-radius: 0 5px 5px 0;
+            }
+            @keyframes gradientMove {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
 
-    /* Animations */
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+            /* Section Styling */
+            .placeholder {
+                background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
+                height: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                opacity: 0;
+                transform: translateY(40px);
+                animation: fadeInUp 1s forwards;
+            }
+            .img-placeholder {
+                background: #d0d0d0;
+                width: 100%;
+                height: 150px;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: transform 0.3s ease;
+            }
+            .img-placeholder:hover {
+                transform: scale(1.05);
+            }
+            .section-title {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                opacity: 0;
+                transform: translateY(40px);
+                animation: fadeInUp 1s forwards;
+                animation-delay: 0.2s;
+            }
 
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background-color: #121212;
-        color: #e0e0e0;
-      }
-      .navbar {
-        background-color: #1f1f1f;
-        box-shadow: 0 2px 10px rgba(255,255,255,0.05);
-      }
-      .navbar-brand {
-        color: #0d6efd;
-      }
-      .navbar-nav .nav-link {
-        color: #e0e0e0;
-      }
-      .navbar-nav .nav-link:hover {
-        color: #66b2ff;
-      }
-      .navbar-collapse {
-        background: #1f1f1f;
-      }
-      .placeholder {
-        background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
-        color: white;
-      }
-      .img-placeholder {
-        background: #444;
-      }
-    }
-  </style>
-</head>
+            /* Animations */
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
 
-<body>
+            /* Dark Mode */
+            @media (prefers-color-scheme: dark) {
+                body {
+                    background-color: #121212;
+                    color: #e0e0e0;
+                }
+                .navbar {
+                    background-color: #1f1f1f;
+                    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
+                }
+                .navbar-brand {
+                    color: #0d6efd;
+                }
+                .navbar-nav .nav-link {
+                    color: #e0e0e0;
+                }
+                .navbar-nav .nav-link:hover {
+                    color: #66b2ff;
+                }
+                .navbar-collapse {
+                    background: #1f1f1f;
+                }
+                .placeholder {
+                    background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
+                    color: white;
+                }
+                .img-placeholder {
+                    background: #444;
+                }
+            }
+        </style>
+    </head>
 
-<!-- Scroll Progress Bar -->
-<div id="progress-bar"></div>
+    <body>
+        <!-- Scroll Progress Bar -->
+        <div id="progress-bar"></div>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg shadow-sm">
-  <div class="container">
-    <a class="navbar-brand" href="#home">Chess</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="#home">Chess</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#learn">Learn</a></li>
-        <li class="nav-item"><a class="nav-link" href="#tournaments">Tournaments</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-      </ul>
-      <div class="d-flex ms-lg-3">
-        <a href="#getstarted" class="btn btn-primary">Get Started</a>
-      </div>
-    </div>
-  </div>
-</nav>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#learn">Learn</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#tournaments"
+                                >Tournaments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#faq">FAQ</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex ms-lg-3">
+                        <a href="#getstarted" class="btn btn-primary"
+                            >Get Started</a
+                        >
+                    </div>
+                </div>
+            </div>
+        </nav>
 
-<!-- Sections -->
-<div id="home" class="container my-5">
-  <div class="placeholder">🏰 Welcome to Chess World</div>
-</div>
-
-<div id="learn" class="container mb-5">
-  <div class="row g-4 align-items-center">
-    <div class="col-md-4">
-      <div class="img-placeholder">♟️</div>
-    </div>
-    <div class="col-md-8">
-      <div class="placeholder" style="height: 150px;">Learn the Art of Chess</div>
-    </div>
-  </div>
-</div>
-
-<div id="tournaments" class="container mb-5">
-  <h2 class="text-center section-title">3 things about chess</h2>
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="placeholder">Card 1</div>
-    </div>
-    <div class="col-md-4">
-      <div class="placeholder">Card 2</div>
-    </div>
-    <div class="col-md-4">
-      <div class="placeholder">Card 3</div>
-    </div>
-  </div>
-</div>
-
-<div id="about" class="container mb-5">
-  <div class="row g-5">
-    <div class="col-md-6">
-      <h5 class="text-center mb-3 fw-bold">Inventions Past</h5>
-      <div class="row g-3">
-        <div class="col-6">
-          <div class="img-placeholder">Img</div>
+        <!-- Sections -->
+        <div id="home" class="container my-5">
+            <div class="placeholder">Welcome to the Chess World</div>
         </div>
-        <div class="col-6">
-          <div class="img-placeholder">Img</div>
+
+        <div id="learn" class="container mb-5">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-4">
+                    <div class="img-placeholder">♟️</div>
+                </div>
+                <div class="col-md-8">
+                    <div class="placeholder" style="height: auto">
+                        Learn the Introduction of Chess
+                        <br></br>
+                        Chess is a game played by 2 people on one chessboard. It is a 8x8 grid with many different pieces such as 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen and a singular king. Many people of different ages from around age 5 and above from kids to adults. In fact many people still play this board game today and have not yet stopped playing due to many new players who arised to the top of the world and many top computers that people are still trying to beat them and to find more strategies about the game. There are also many software and hardware related to the topic of chess that we are still exploring for many years just for one opportunity.
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <h5 class="text-center mb-3 fw-bold">Future Innovations</h5>
-      <div class="row g-3">
-        <div class="col-6">
-          <div class="img-placeholder">Img</div>
+
+        <div id="tournaments" class="container mb-5">
+            <h2 class="text-center section-title">3 things about chess</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="placeholder">Card 1</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="placeholder">Card 2</div>
+                </div>
+                <div class="col-md-4">
+                    <div class="placeholder">Card 3</div>
+                </div>
+            </div>
         </div>
-        <div class="col-6">
-          <div class="img-placeholder">Img</div>
+
+        <div id="about" class="container mb-5">
+            <div class="row g-5">
+                <div class="col-md-6">
+                    <h5 class="text-center mb-3 fw-bold">Inventions Past</h5>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="img-placeholder">Img</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="img-placeholder">Img</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-center mb-3 fw-bold">Future Innovations</h5>
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="img-placeholder">Img</div>
+                        </div>
+                        <div class="col-6">
+                            <div class="img-placeholder">Img</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div id="getstarted" class="container mb-5">
-  <div class="placeholder">Designs</div>
-</div>
+        <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+            <div style="width: 800px; height: 600px;">
+            <a-scene embedded>
+                <a-plane position="1 -3.3 -11" rotation="-90 0 0" width="20" height="20" color="lightblue"></a-plane>
+                <!--Rook1-->
+                <a-plane position="-6 -3 -4" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-cone position="-6 -2.3 -4" geometry="radiusBottom: 0.72; radiusTop: 0.2" color="#22BCF2" height="1.4"></a-cone>
+                <a-cone position="-6 -2.3 -4" geometry="radiusBottom: 0.72; radiusTop: 0.2" color="#22BCF2" rotation="-180 0 0" height="1.4"></a-cone>
+                <a-box position="-6 -1.5 -4" width="0.8" height="0.8" depth="0.8" color="#22BCF2"></a-box>
+                <!--Knight1-->
+                <a-plane position="-4 -3 -4" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-cylinder position="-4 -2.8 -4" radius="0.72" height="0.4" color="#22BCF2"></a-cylinder>
+                <a-cylinder position="-4 -2.5 -4" radius="0.52" height="1.8" depth="0.6" color="#22BCF2"></a-cylinder>
+                <a-sphere position="-4 -1.4 -4.15" radius="0.4" depth="0.4" rotation="30 0 0" color="#22BCF2"></a-sphere>
+                <a-cone position="-3.9 -1.2 -4.05" height="0.8" radius-bottom="0.2" color="#22BCF2" rotation="0 0 -22"></a-cone>
+                <a-cone position="-4.1 -1.2 -4.05" height="0.8" radius-bottom="0.2" color="#22BCF2" rotation="0 0 22"></a-cone>
+                <!--Bishop1-->
+                <a-plane position="-2 -3 -4" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="0 -3 -4" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="2 -3 -4" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="4 -3 -4" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <!--Knight2-->
+                <a-plane position="6 -3 -4" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-cylinder position="6 -2.8 -4" radius="0.72" height="0.4" color="#22BCF2"></a-cylinder>
+                <a-cylinder position="6 -2.5 -4" radius="0.52" height="1.8" depth="0.6" color="#22BCF2"></a-cylinder>
+                <a-sphere position="6 -1.4 -4.15" radius="0.4" depth="0.4" rotation="30 0 0" color="#22BCF2"></a-sphere>
+                <a-cone position="6.1 -1.2 -4.05" height="0.8" radius-bottom="0.2" color="#22BCF2" rotation="0 0 -22"></a-cone>
+                <a-cone position="5.9 -1.2 -4.05" height="0.8" radius-bottom="0.2" color="#22BCF2" rotation="0 0 22"></a-cone>
+                <!--Rook2-->
+                <a-plane position="8 -3 -4" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-cone position="8 -2.3 -4" geometry="radiusBottom: 0.72; radiusTop: 0.2" color="#22BCF2" height="1.4"></a-cone>
+                <a-cone position="8 -2.3 -4" geometry="radiusBottom: 0.72; radiusTop: 0.2" color="#22BCF2" rotation="-180 0 0" height="1.4"></a-cone>
+                <a-box position="8 -1.5 -4" width="0.8" height="0.8" depth="0.8" color="#22BCF2"></a-box>
 
-<div id="faq" class="container mb-5">
-  <h2 class="text-center section-title">🤔 FAQs About Chess</h2>
-  <div class="row g-4">
-    <div class="col-6 col-md-3">
-      <div class="placeholder">How to Begin?</div>
-    </div>
-    <div class="col-6 col-md-3">
-      <div class="placeholder">What is Checkmate?</div>
-    </div>
-    <div class="col-6 col-md-3">
-      <div class="placeholder">Tips to Improve</div>
-    </div>
-    <div class="col-6 col-md-3">
-      <div class="placeholder">Best Openings</div>
-    </div>
-  </div>
-</div>
+                <a-plane position="-6 -3 -6" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-4 -3 -6" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-2 -3 -6" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="0 -3 -6" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="2 -3 -6" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="4 -3 -6" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="6 -3 -6" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="8 -3 -6" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
 
-<!-- Bootstrap Bundle -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                <a-plane position="-6 -3 -8" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-4 -3 -8" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-2 -3 -8" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="0 -3 -8" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="2 -3 -8" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="4 -3 -8" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="6 -3 -8" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="8 -3 -8" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
 
-<!-- Scroll Script -->
-<script>
-  window.onscroll = function() {
-    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById("progress-bar").style.width = scrolled + "%";
-  };
-</script>
+                <a-plane position="-6 -3 -10" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-4 -3 -10" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-2 -3 -10" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="0 -3 -10" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="2 -3 -10" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="4 -3 -10" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="6 -3 -10" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="8 -3 -10" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
 
-</body>
+                <a-plane position="-6 -3 -12" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-4 -3 -12" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-2 -3 -12" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="0 -3 -12" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="2 -3 -12" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="4 -3 -12" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="6 -3 -12" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="8 -3 -12" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+
+                <a-plane position="-6 -3 -14" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-4 -3 -14" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-2 -3 -14" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="0 -3 -14" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="2 -3 -14" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="4 -3 -14" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="6 -3 -14" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="8 -3 -14" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+
+                <a-plane position="-6 -3 -16" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-4 -3 -16" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-2 -3 -16" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="0 -3 -16" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="2 -3 -16" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="4 -3 -16" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="6 -3 -16" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="8 -3 -16" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+
+                <a-plane position="-6 -3 -18" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="-4 -3 -18" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="-2 -3 -18" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="0 -3 -18" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="2 -3 -18" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="4 -3 -18" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+                <a-plane position="6 -3 -18" rotation="-90 0 0" width="2" height="2" color="white"></a-plane>
+                <a-plane position="8 -3 -18" rotation="-90 0 0" width="2" height="2" color="black"></a-plane>
+
+
+                <a-plane position="-21.5 -3.3 -11.5" rotation="-90 0 0" width="10" height="10" color="lightblue"></a-plane>
+                <!--Rook-->
+                <a-plane position="-25 -3 -8" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cone position="-25 -2.6 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="0.7"></a-cone>
+                <a-cone position="-25 -2.6 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" rotation="-180 0 0" height="0.7"></a-cone>
+                <a-box position="-25 -2.1 -8" width="0.4" height="0.4" depth="0.4" color="#22BCF2"></a-box>
+                <!--Knight-->
+                <a-plane position="-24 -3 -8" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-24 -2.8 -8" radius="0.36" height="0.2" color="#22BCF2"></a-cylinder>
+                <a-cylinder position="-24 -2.5 -8" radius="0.26" height="0.9" depth="0.3" color="#22BCF2"></a-cylinder>
+                <a-sphere position="-24 -1.9 -8.1" radius="0.2" depth="0.4" rotation="30 0 0" color="#22BCF2"></a-sphere>
+                <a-cone position="-23.9 -1.7 -8.05" height="0.2" radius-bottom="0.1" color="#22BCF2" rotation="0 0 -22"></a-cone>
+                <a-cone position="-24.1 -1.7 -8.05" height="0.2" radius-bottom="0.1" color="#22BCF2" rotation="0 0 22"></a-cone>
+                <!--Bishop-->
+                <a-plane position="-23 -3 -8" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cone position="-23 -2.5 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="1.1"></a-cone>
+                <a-cone position="-23 -2 -8" geometry="radiusBottom: 0.32; radiusTop: 0.1" color="#22BCF2" height="1.1"></a-cone>
+                <a-sphere position="-23 -1.8 -8" radius="0.25" color="#22BCF2"></a-sphere>
+                <!--Queen-->
+                <a-plane position="-22 -3 -8" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cone position="-22 -2.6 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="0.8"></a-cone>
+                <a-cylinder position="-22 -2.6 -8" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-cone position="-22 -2.2 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="0.8" rotation="-180 0 0"></a-cone>
+                <a-sphere position="-22 -1.6 -8" radius="0.21" color="#22BCF2"></a-sphere>
+                <!--King-->
+                <a-plane position="-21 -3 -8" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cone position="-21 -2.6 -8" geometry="radiusBottom: 0.34; radiusTop: 0.1" color="#22BCF2" height="0.8"></a-cone>
+                <a-cylinder position="-21 -2.6 -8" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-cone position="-21 -2.3 -8" geometry="radiusBottom: 0.34; radiusTop: 0.1" color="#22BCF2" height="0.8" rotation="-180 0 0"></a-cone>
+                <a-box position="-21 -1.6 -8" width="0.17" height="0.3" rotation="-90 -90 0" depth="0.75" color="lightblue"></a-box>
+                <a-box position="-21 -1.6 -8" width="0.17" height="0.3" rotation="0 -90 -90" depth="0.75" color="lightblue"></a-box>
+                <!--Bishop2-->
+                <a-plane position="-20 -3 -8" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cone position="-20 -2.5 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="1.1"></a-cone>
+                <a-cone position="-20 -2 -8" geometry="radiusBottom: 0.32; radiusTop: 0.1" color="#22BCF2" height="1.1"></a-cone>
+                <a-sphere position="-20 -1.8 -8" radius="0.25" color="#22BCF2"></a-sphere>
+                <!--Knight2-->
+                <a-plane position="-19 -3 -8" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-19 -2.8 -8" radius="0.36" height="0.2" color="#22BCF2"></a-cylinder>
+                <a-cylinder position="-19 -2.5 -8" radius="0.26" height="0.9" depth="0.3" color="#22BCF2"></a-cylinder>
+                <a-sphere position="-19 -1.9 -8.1" radius="0.2" depth="0.4" rotation="30 0 0" color="#22BCF2"></a-sphere>
+                <a-cone position="-18.9 -1.7 -8.05" height="0.2" radius-bottom="0.1" color="#22BCF2" rotation="0 0 -22"></a-cone>
+                <a-cone position="-19.1 -1.7 -8.05" height="0.2" radius-bottom="0.1" color="#22BCF2" rotation="0 0 22"></a-cone>
+                <!--Rook2-->
+                <a-plane position="-18 -3 -8" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cone position="-18 -2.6 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" height="0.7"></a-cone>
+                <a-cone position="-18 -2.6 -8" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#22BCF2" rotation="-180 0 0" height="0.7"></a-cone>
+                <a-box position="-18 -2.1 -8" width="0.4" height="0.4" depth="0.4" color="#22BCF2"></a-box>
+
+                <!--Pawns-->
+                <a-plane position="-25 -3 -9" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-25 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-24 -3 -9" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-24 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-23 -3 -9" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-23 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-22 -3 -9" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-22 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-21 -3 -9" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-21 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-20 -3 -9" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-20 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-19 -3 -9" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-19 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+                <a-plane position="-18 -3 -9" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-18 -2.6 -9" radius="0.24" color="#22BCF2"></a-cylinder>
+
+                <a-plane position="-25 -3 -10" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-24 -3 -10" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-23 -3 -10" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-22 -3 -10" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-21 -3 -10" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-20 -3 -10" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-19 -3 -10" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-18 -3 -10" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+
+                <a-plane position="-25 -3 -11" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-24 -3 -11" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-23 -3 -11" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-22 -3 -11" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-21 -3 -11" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-20 -3 -11" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-19 -3 -11" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-18 -3 -11" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+
+                <a-plane position="-25 -3 -12" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-24 -3 -12" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-23 -3 -12" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-22 -3 -12" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-21 -3 -12" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-20 -3 -12" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-19 -3 -12" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-18 -3 -12" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+
+                <a-plane position="-25 -3 -13" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-24 -3 -13" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-23 -3 -13" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-22 -3 -13" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-21 -3 -13" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-20 -3 -13" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-plane position="-19 -3 -13" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-plane position="-18 -3 -13" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+
+                <!--Pawns-->
+                <a-plane position="-25 -3 -14" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-25 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-24 -3 -14" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-24 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-23 -3 -14" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-23 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-22 -3 -14" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-22 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-21 -3 -14" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-21 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-20 -3 -14" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-20 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-19 -3 -14" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-19 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-plane position="-18 -3 -14" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-18 -2.6 -14" radius="0.24" color="#DB3069"></a-cylinder>
+
+                <!--Rook1-->
+                <a-plane position="-25 -3 -15" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cone position="-25 -2.6 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="0.7"></a-cone>
+                <a-cone position="-25 -2.6 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" rotation="-180 0 0" height="0.7"></a-cone>
+                <a-box position="-25 -2.1 -15" width="0.4" height="0.4" depth="0.4" color="#DB3069"></a-box>
+                <!--Knight1-->
+                <a-plane position="-24 -3 -15" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cylinder position="-24 -2.8 -15" radius="0.36" height="0.2" color="#DB3069"></a-cylinder>
+                <a-cylinder position="-24 -2.5 -15" radius="0.26" height="0.9" depth="0.3" color="#DB3069"></a-cylinder>
+                <a-sphere position="-24 -1.9 -14.9" radius="0.2" depth="0.4" rotation="30 0 0" color="#DB3069"></a-sphere>
+                <a-cone position="-23.9 -1.7 -14.95" height="0.2" radius-bottom="0.1" color="#DB3069" rotation="0 0 -22"></a-cone>
+                <a-cone position="-24.1 -1.7 -14.95" height="0.2" radius-bottom="0.1" color="#DB3069" rotation="0 0 22"></a-cone>
+                <!--Bishop1-->
+                <a-plane position="-23 -3 -15" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cone position="-23 -2.5 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="1.1"></a-cone>
+                <a-cone position="-23 -2 -15" geometry="radiusBottom: 0.32; radiusTop: 0.1" color="#DB3069" height="1.1"></a-cone>
+                <a-sphere position="-23 -1.8 -15" radius="0.25" color="#DB3069"></a-sphere>
+                <!--Queen-->
+                <a-plane position="-22 -3 -15" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cone position="-22 -2.6 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="0.8"></a-cone>
+                <a-cylinder position="-22 -2.6 -15" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-cone position="-22 -2.2 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="0.8" rotation="-180 0 0"></a-cone>
+                <a-sphere position="-22 -1.6 -15" radius="0.21" color="#DB3069"></a-sphere>
+                <a-cone position="-23 -2.5 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="1.1"></a-cone>
+                <a-cone position="-23 -2 -15" geometry="radiusBottom: 0.32; radiusTop: 0.1" color="#DB3069" height="1.1"></a-cone>
+                <a-sphere position="-23 -1.8 -15" radius="0.25" color="#DB3069"></a-sphere>
+                <!--King-->
+                <a-plane position="-21 -3 -15" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cone position="-21 -2.6 -15" geometry="radiusBottom: 0.34; radiusTop: 0.1" color="#DB3069" height="0.8"></a-cone>
+                <a-cylinder position="-21 -2.6 -15" radius="0.24" color="#DB3069"></a-cylinder>
+                <a-cone position="-21 -2.3 -15" geometry="radiusBottom: 0.34; radiusTop: 0.1" color="#DB3069" height="0.8" rotation="-180 0 0"></a-cone>
+                <a-box position="-21 -1.6 -15" width="0.17" height="0.3" rotation="-90 -90 0" depth="0.75" color="lightpink"></a-box>
+                <a-box position="-21 -1.6 -15" width="0.17" height="0.3" rotation="0 -90 -90" depth="0.75" color="lightpink"></a-box>
+                <!--Bishop2-->
+                <a-plane position="-20 -3 -15" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cone position="-20 -2.5 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="1.1"></a-cone>
+                <a-cone position="-20 -2 -15" geometry="radiusBottom: 0.32; radiusTop: 0.1" color="#DB3069" height="1.1"></a-cone>
+                <a-sphere position="-20 -1.8 -15" radius="0.25" color="#DB3069"></a-sphere>
+                <!--Knight2-->
+                <a-plane position="-19 -3 -15" rotation="-90 0 0" width="1" height="1" color="white"></a-plane>
+                <a-cylinder position="-19 -2.8 -15" radius="0.36" height="0.2" color="#DB3069"></a-cylinder>
+                <a-cylinder position="-19 -2.5 -15" radius="0.26" height="0.9" depth="0.3" color="#DB3069"></a-cylinder>
+                <a-sphere position="-19 -1.9 -14.9" radius="0.2" depth="0.4" rotation="30 0 0" color="#DB3069"></a-sphere>
+                <a-cone position="-18.9 -1.7 -14.95" height="0.2" radius-bottom="0.1" color="#DB3069" rotation="0 0 -22"></a-cone>
+                <a-cone position="-19.1 -1.7 -14.95" height="0.2" radius-bottom="0.1" color="#DB3069" rotation="0 0 22"></a-cone>
+                <!--Rook2-->
+                <a-plane position="-18 -3 -15" rotation="-90 0 0" width="1" height="1" color="black"></a-plane>
+                <a-cone position="-18 -2.6 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" height="0.7"></a-cone>
+                <a-cone position="-18 -2.6 -15" geometry="radiusBottom: 0.36; radiusTop: 0.1" color="#DB3069" rotation="-180 0 0" height="0.7"></a-cone>
+                <a-box position="-18 -2.1 -15" width="0.4" height="0.4" depth="0.4" color="#DB3069"></a-box>
+                <a-sky color="lightyellow"></a-sky>
+        </a-scene>
+        </div>
+        </div>
+
+
+        <div id="faq" class="container mb-5">
+            <h2 class="text-center section-title">🤔 FAQs About Chess</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="placeholder">
+                        How to begin a chess game
+                        <br></br>
+                        To begin a chess game, those who play white goes first and they can move their pieces
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="placeholder">What is en passant in chess</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="placeholder">Tips to Improve when playing chess</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="placeholder">Best Openings to play and learn</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Scroll Script -->
+        <script>
+            window.onscroll = function() {
+              const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+              const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+              const scrolled = (winScroll / height) * 100;
+              document.getElementById("progress-bar").style.width = scrolled + "%";
+            };
+        </script>
+    </body>
 </html>
