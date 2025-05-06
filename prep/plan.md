@@ -24,21 +24,12 @@
 * Make webiste more engageable and look better
 
 
-
-
-
-
-
-
-<!-- DO NOT USE THIS YET
-
+#### Peer Feedback
 | Name | Glows | Grows |
 | -------- | ------- | ------- |
+| Bah  | Color scheme and organization are well done  | You should try inserting the future ideas that you have brainstormed for part B instead of the placeholder text!
 |   |   |
 |   |   |
 |   |   |
 |   |   |
 |   |   |
-|   |   |
-
--->
