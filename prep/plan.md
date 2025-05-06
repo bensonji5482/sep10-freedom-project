@@ -5,7 +5,7 @@
 * [Desktop](desktop.png)
 
 ## Colors
-* `#ABC123`
+* `white`
 
 ## Fonts
 * [Poppins](https://fonts.google.com/specimen/Poppins)
