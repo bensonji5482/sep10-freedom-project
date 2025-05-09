@@ -18,26 +18,25 @@
             text-align: center;
         }
 
-        .heading {
-            background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
-            width: 100%;
-        }
-
         html,
         body {
             height: 100%;
             margin: 0;
-            padding: 0;
+            padding-top: 30px;
         }
 
         .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 1020;
-            background-color: white;
-            padding: 0.7rem 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
+    /* Remove or comment out this line: */
+    /* position: sticky; */
+    /* Instead, let Bootstrap's .fixed-top apply position: fixed */
+
+    top: 0;
+    z-index: 1030;
+    background-color: white;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
 
         .navbar-brand {
             font-weight: 700;
@@ -61,36 +60,46 @@
             padding: 0.4rem 1rem;
         }
 
-        /* Collapsed Navbar Scroll */
-        @media (max-width: 991.98px) {
-            .navbar-collapse {
-                max-height: 70vh;
-                overflow-y: auto;
-                margin-top: 0.5rem;
-                background: white;
-                border-radius: 10px;
-                padding: 1rem;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            }
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        max-height: 70vh;
+        overflow-y: auto;
+        background: white;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        /* REMOVE this line ↓ */
+        /* margin-top: 0.5rem; */
+    }
 
-            .navbar-collapse::-webkit-scrollbar {
-                width: 6px;
-            }
+    .navbar-collapse::-webkit-scrollbar {
+        width: 6px;
+    }
 
-            .navbar-collapse::-webkit-scrollbar-track {
-                background: #f1f1f1;
-                border-radius: 10px;
-            }
+    .navbar-collapse::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
 
-            .navbar-collapse::-webkit-scrollbar-thumb {
-                background: #c0c0c0;
-                border-radius: 10px;
-            }
+    .navbar-collapse::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border-radius: 10px;
+    }
 
-            .navbar-collapse::-webkit-scrollbar-thumb:hover {
-                background: #888;
-            }
-        }
+    .navbar-collapse::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+}
+
+.navbar.fixed-top {
+    top: 0;
+    z-index: 1030;
+    background-color: white;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+
 
         /* Scroll Progress Bar */
         #progress-bar {
@@ -108,7 +117,7 @@
         }
 
         /* Section Styling */
-        .placeholder {
+        .heading {
             background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
             height: auto;
             display: flex;
@@ -171,32 +180,36 @@
 
 <body>
     <!-- Scroll Progress Bar -->
-    <div id="progress-bar"></div>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="#home">Chess</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#learn">Learn</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#unique">Unique</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#faq">FAQ</a>
-                    </li>
-                </ul>
-            </div>
+<div id="progress-bar"></div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#home">Chess</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#learn">Learn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#unique">Unique</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">FAQ</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
+
+
     <!-- Sections -->
     <div id="home" class="container my-5">
         <div class="heading" style="height: auto; font-size: 130px">Welcome to the Chess World</div>
@@ -207,7 +220,7 @@
                 <div><img class="else" src="./prep/chessboard.jpeg"></div>
             </div>
             <div class="col-md-8">
-                <div class="placeholder"> Learn the Introduction of Chess <br></br> Chess is a game played by 2 people on one chessboard. It is a 8x8 grid with many different pieces such as 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen and a singular king. Many people of different ages from around age 5 and above from kids to adults. In fact many people still play this board game today and have not yet stopped playing due to many new players who arised to the top of the world and many top computers that people are still trying to beat them and to find more strategies about the game. There are also many software and hardware related to the topic of chess that we are still exploring for many years just for one opportunity. </div>
+                <div class="heading"> Learn the Introduction of Chess <br></br> Chess is a game played by 2 people on one chessboard. It is a 8x8 grid with many different pieces such as 8 pawns, 2 rooks, 2 knights, 2 bishops, 1 queen and a singular king. Many people of different ages from around age 5 and above from kids to adults. In fact many people still play this board game today and have not yet stopped playing due to many new players who arised to the top of the world and many top computers that people are still trying to beat them and to find more strategies about the game. There are also many software and hardware related to the topic of chess that we are still exploring for many years just for one opportunity. </div>
             </div>
         </div>
     </div>
@@ -215,20 +228,20 @@
         <h2 class="text-center section-title">3 unique things about chess</h2>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="placeholder">Strategic Depth and Complexity <br></br> Chess is known for its strategic depth, which comes from the possible positions and variations. The game's rules allow for a endless number of moves and strategies, leading to unique and unpredictable games.</div>
+                <div class="heading">Strategic Depth and Complexity <br></br> Chess is known for its strategic depth, which comes from the possible positions and variations. The game's rules allow for a endless number of moves and strategies, leading to unique and unpredictable games.</div>
             </div>
             <div class="col-md-4">
-                <div class="placeholder">Unique Piece Movements <br></br> Each piece has a way of moving, adding to the strategic possibilities of the game. The queen can move any number of squares horizontally, vertically, or diagonally, while the knight moves in an "L" shape, jumping over other pieces.</div>
+                <div class="heading">Unique Piece Movements <br></br> Each piece has a way of moving, adding to the strategic possibilities of the game. The queen can move any number of squares horizontally, vertically, or diagonally, while the knight moves in an "L" shape, jumping over other pieces.</div>
             </div>
             <div class="col-md-4">
-                <div class="placeholder">Special Moves <br></br> Chess uses special moves like castling (moving king and rook across), pawn promotion (turning a pawn to a another piece, not a king). These moves add further strategic layers and opportunities for good and complex plays.</div>
+                <div class="heading">Special Moves <br></br> Chess uses special moves like castling (moving king and rook across), pawn promotion (turning a pawn to a another piece, not a king). These moves add further strategic layers and opportunities for good and complex plays.</div>
             </div>
         </div>
     </div>
     <div id="about" class="container mb-5">
         <div class="row g-5">
             <div class="col-md-6">
-                <div class="placeholder">Inventions Past <br></br> The inventions that were made in the past which the modern era also counts as the past is things like chess.com, lichess.org or maybe even chessable.com where people uses these cites to learn, play and experience the world of chess with its gameplay, technology and even the computers that is engineered in the website and there is still more and more things to go. <br></br> The website looked into was "www.chess.com" or the app version on phone. The website has chess to see everywhere! Not many ads, easy to navigate, good looking, very convincing to use, and able to chat with others once added as friends in the website. This website can help people interact with one another and lets you play chess online without a board (works anywhere). Can also help you review your mistakes after a game of chess (1 time per day). There are many articles to read and learn about more (from professional grand masters). There are also some limited amount of puzzles to help improve your strategy and thinking process. Lastly there are chess bots to help you practice whenever you are offline. <br></br> The 2nd website is "www.lichess.org" or the app version on phone. This is similar to chess.com but it has almost no ads, many time controls to pick from (chess.com also has this), easy to navigate and etc. You can play chess against players around your rating level, puzzles to improve strategies played by you (Infinite amount), allows you to spectate games that are in high level elo (level), play against your friends by hosting a link and give it to them and a whole community to help you if you are stuck with something while playing or using the site.<br></br> The last website is "www.chessable.com" or app version on phone. This is an app to learn more about strategies and tactics to play in chess, find courses to help you learn how to play the game and improve your skill. Easy to navigate. There are many different courses to pick from if you need something to learn which is also where you can learn tactics and openings. This is similar to chess.com and lichess.org as there are many puzzles. Also lots of lessons and professional instructors of the lesson to teach you. Lastly this is available offline and able to use it anywhere around the world. (I think only for mobile version of chessabale)</div>
+                <div class="heading">Inventions Past <br></br> The inventions that were made in the past which the modern era also counts as the past is things like chess.com, lichess.org or maybe even chessable.com where people uses these cites to learn, play and experience the world of chess with its gameplay, technology and even the computers that is engineered in the website and there is still more and more things to go. <br></br> The website looked into was "www.chess.com" or the app version on phone. There is not many ads, easy to navigate, good looking, very convincing to use, and able to chat with others once added as friends in the website. This website can help people interact with one another and lets you play chess online without a board (works anywhere). Can also help you review your mistakes after a game of chess (1 time per day). There are many articles to read and learn about more (from professional grand masters). There are also some limited amount of puzzles to help improve your strategy and thinking process. Lastly there are chess bots to help you practice whenever you are offline. <br></br> The 2nd website is "www.lichess.org" or the app version on phone. This is similar to chess.com but it has almost no ads, many time controls to pick from (chess.com also has this), easy to navigate and etc. You can play chess against players around your rating level, puzzles to improve strategies played by you (Infinite amount), allows you to spectate games that are in high level elo (level), play against your friends by hosting a link and give it to them and a whole community to help you if you are stuck with something while playing or using the site.<br></br> The last website is "www.chessable.com" or app version on phone. This is an app to learn more about strategies and tactics to play in chess, find courses to help you learn how to play the game and improve your skill. Easy to navigate. There are many different courses to pick from if you need something to learn which is also where you can learn tactics and openings. This is similar to chess.com and lichess.org as there are many puzzles. Also lots of lessons and professional instructors of the lesson to teach you. Lastly this is available offline and able to use it anywhere around the world. (I think only for mobile version of chessabale)</div>
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="img-placeholder"><img src="./prep/chess.com.jpeg"></div>
@@ -239,7 +252,7 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="placeholder">Future Innovations <br></br> As you know our world starts to evolve slowly over the years so there may be new things that we are able to have in our places on Earth to make the game of chess more widely known and spread throughout the world and to become better people. <br></br> Such as the first innovation will be a "Cheat Preventer System: A chip that can be put into a chessboard that will make phones unavailable for use within a 39.3701 inches (which also means that any wifi on a phone will be unable to use) This can also be used to interrupt radio communication during a friendly match or during a chess tournament to prevent anything bad." <br></br> The second innovation will be a "Ultra Chess Board: The ultra chess board is a large sized chess board that can connect bluetooth to a regular sized one and the ultra chess board will have pieces move on its own. The regular bluetooth board has humans playing on the regular sized chess board and making moves. Can be used during a chess championship. The ‘Cheat Preventer System’ can be put into the mini board being played by the humans which is the ‘automatic notator’ board." <br></br> The third was intoduced before hand which is the "Automatic Notator" When playing during a game there will be a paper taking notations under the chess board and once it is done it prints it out for whichever side of the board wants it. If you want to view the game put the paper back in and a hologram will show up with the pieces and there will be a arrow controller to go forward and backward on moves. There will also be an indicator if you make an illegal move by a hologram saying that you made an illegal move and automatically move the piece back to where it was before. This is also classified as a chessboard that can connect to bluetooth and has a slot to put in the ‘Cheat Preventer System’ to help your games." <br></br> The last innovation would be "Piece Scrambler (A system of the automatic notator) The chessboard that will automatically scramble the pieces around making a random chess puzzle with printed notations afterwards. The notations will also have move indicators whether they are good or bad similar to chess.com so you can learn from those mistakes made."</div>
+                <div class="heading">Future Innovations <br></br> As you know our world starts to evolve slowly over the years so there may be new things that we are able to have in our places on Earth to make the game of chess more widely known and spread throughout the world and to become better people. <br></br> Such as the first innovation will be a "Cheat Preventer System: A chip that can be put into a chessboard that will make phones unavailable for use within a 39.3701 inches (which also means that any wifi on a phone will be unable to use) This can also be used to interrupt radio communication during a friendly match or during a chess tournament to prevent anything bad." <br></br> The second innovation will be a "Ultra Chess Board: The ultra chess board is a large sized chess board that can connect bluetooth to a regular sized one and the ultra chess board will have pieces move on its own. The regular bluetooth board has humans playing on the regular sized chess board and making moves. Can be used during a chess championship. The ‘Cheat Preventer System’ can be put into the mini board being played by the humans which is the ‘automatic notator’ board." <br></br> The third was intoduced before hand which is the "Automatic Notator" When playing during a game there will be a paper taking notations under the chess board and once it is done it prints it out for whichever side of the board wants it. If you want to view the game put the paper back in and a hologram will show up with the pieces and there will be a arrow controller to go forward and backward on moves. There will also be an indicator if you make an illegal move by a hologram saying that you made an illegal move and automatically move the piece back to where it was before. This is also classified as a chessboard that can connect to bluetooth and has a slot to put in the ‘Cheat Preventer System’ to help your games." <br></br> The last innovation would be "Piece Scrambler (A system of the automatic notator) The chessboard that will automatically scramble the pieces around making a random chess puzzle with printed notations afterwards. The notations will also have move indicators whether they are good or bad similar to chess.com so you can learn from those mistakes made."</div>
                 <div class="row g-3">
                     <div class="col-6">
                         <div class="img-placeholder">Would be one here for some other innovations</div>
@@ -514,16 +527,16 @@
         <h2 class="text-center section-title">🤔 FAQs About Chess</h2>
         <div class="row g-4">
             <div class="col-6 col-md-3">
-                <div class="placeholder"> How to begin a chess game <br></br> To begin a chess game, those who play white goes first and they can move their pieces. Pawns moves 2 spaces forward from the starting square then can only move one square. Rooks move up, down, left, right in an unlimited distance. The same goes for the bishops but only diagonally. The queen and knight was covered at the top in the 3 unique things section.</div>
+                <div class="heading"> How to begin a chess game <br></br> To begin a chess game, those who play white goes first and they can move their pieces. Pawns moves 2 spaces forward from the starting square then can only move one square. Rooks move up, down, left, right in an unlimited distance. The same goes for the bishops but only diagonally. The queen and knight was covered at the top in the 3 unique things section.</div>
             </div>
             <div class="col-6 col-md-3">
-                <div class="placeholder">What is en passant in chess <br></br> The move en passant is like a passing move where when a player moves 2 spaces forward from their starting square and they move it next to one of your pawns you can take by moving that pawn behind the other one which is called en passant. It is a very rare move that is not played that often but only when there is a opportunity to play it but it is very optional to play that move.</div>
+                <div class="heading">What is en passant in chess <br></br> The move en passant is like a passing move where when a player moves 2 spaces forward from their starting square and they move it next to one of your pawns you can take by moving that pawn behind the other one which is called en passant. It is a very rare move that is not played that often but only when there is a opportunity to play it but it is very optional to play that move.</div>
             </div>
             <div class="col-6 col-md-3">
-                <div class="placeholder">Tips to Improve when playing chess <br></br> You can watch youtube or learn online for openings, mistakes often made or even traps at a certain level. I suggest you to try things like chessly (made by Gotham Chess if you want to see him more often), chessable, or chess.com for online sites. For youtube I highly sugesst Gotham Chess, he is a good player with many strategies to go with whilst playing.</div>
+                <div class="heading">Tips to Improve when playing chess <br></br> You can watch youtube or learn online for openings, mistakes often made or even traps at a certain level. I suggest you to try things like chessly (made by Gotham Chess if you want to see him more often), chessable, or chess.com for online sites. For youtube I highly sugesst Gotham Chess, he is a good player with many strategies to go with whilst playing.</div>
             </div>
             <div class="col-6 col-md-3">
-                <div class="placeholder">Best Openings to play and learn <br></br> The best openings to play or learn when playing chess for white would be the "Scotch game", mainly to provide white with a quick attack plus the center and the "Queen's Gambit", this is mainly for being solid at the start to lead into other positions in the game. For black we have only the "Caro-Kann Defence" which is mostly for secure pawn structures and a counterplay.</div>
+                <div class="heading">Best Openings to play and learn <br></br> The best openings to play or learn when playing chess for white would be the "Scotch game", mainly to provide white with a quick attack plus the center and the "Queen's Gambit", this is mainly for being solid at the start to lead into other positions in the game. For black we have only the "Caro-Kann Defence" which is mostly for secure pawn structures and a counterplay.</div>
             </div>
             <p></p>
         </div>
