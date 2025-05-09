@@ -21,9 +21,8 @@
 * In the timeline
 
 #### Beyond MVP
-* Make webiste more engageable and look better
-* attempt to condense the information
 * try to make the navbar fixed top
+* fixed the loading cursor thing caused by placeholder
 
 
 #### Peer Feedback
