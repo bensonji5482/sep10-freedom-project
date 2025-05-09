@@ -25,18 +25,20 @@
             padding-top: 30px;
         }
 
+        .card {
+            background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
+        }
+
         .navbar {
-    /* Remove or comment out this line: */
-    /* position: sticky; */
-    /* Instead, let Bootstrap's .fixed-top apply position: fixed */
-
-    top: 0;
-    z-index: 1030;
-    background-color: white;
-    padding: 0.7rem 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
+            /* Remove or comment out this line: */
+            /* position: sticky; */
+            /* Instead, let Bootstrap's .fixed-top apply position: fixed */
+            top: 0;
+            z-index: 1030;
+            background-color: white;
+            padding: 0.7rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
 
         .navbar-brand {
             font-weight: 700;
@@ -60,46 +62,44 @@
             padding: 0.4rem 1rem;
         }
 
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        max-height: 70vh;
-        overflow-y: auto;
-        background: white;
-        border-radius: 10px;
-        padding: 1rem;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        /* REMOVE this line ↓ */
-        /* margin-top: 0.5rem; */
-    }
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                max-height: 70vh;
+                overflow-y: auto;
+                background: white;
+                border-radius: 10px;
+                padding: 1rem;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+                /* REMOVE this line ↓ */
+                /* margin-top: 0.5rem; */
+            }
 
-    .navbar-collapse::-webkit-scrollbar {
-        width: 6px;
-    }
+            .navbar-collapse::-webkit-scrollbar {
+                width: 6px;
+            }
 
-    .navbar-collapse::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
+            .navbar-collapse::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
 
-    .navbar-collapse::-webkit-scrollbar-thumb {
-        background: #c0c0c0;
-        border-radius: 10px;
-    }
+            .navbar-collapse::-webkit-scrollbar-thumb {
+                background: #c0c0c0;
+                border-radius: 10px;
+            }
 
-    .navbar-collapse::-webkit-scrollbar-thumb:hover {
-        background: #888;
-    }
-}
+            .navbar-collapse::-webkit-scrollbar-thumb:hover {
+                background: #888;
+            }
+        }
 
-.navbar.fixed-top {
-    top: 0;
-    z-index: 1030;
-    background-color: white;
-    padding: 0.7rem 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-
+        .navbar.fixed-top {
+            top: 0;
+            z-index: 1030;
+            background-color: white;
+            padding: 0.7rem 1rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
 
         /* Scroll Progress Bar */
         #progress-bar {
@@ -131,7 +131,8 @@
             overflow: hidden;
         }
 
-        .img-placeholder, img {
+        .img-placeholder,
+        img {
             background: white;
             height: 150px;
             border-radius: 10px;
@@ -141,7 +142,9 @@
             transition: transform 0.3s ease;
         }
 
-        img:hover, .img-placeholder:hover, .placeholder {
+        img:hover,
+        .img-placeholder:hover,
+        .placeholder {
             transform: scale(1.05);
         }
 
@@ -173,43 +176,37 @@
                 transform: translateY(0);
             }
         }
-
-
     </style>
 </head>
 
 <body>
     <!-- Scroll Progress Bar -->
-<div id="progress-bar"></div>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg shadow-sm fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#home">Chess</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-            <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="#learn">Learn</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#unique">Unique</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#faq">FAQ</a>
-                </li>
-            </ul>
+    <div id="progress-bar"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Chess</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-3 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#learn">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#unique">Unique</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
-
-
+    </nav>
     <!-- Sections -->
     <div id="home" class="container my-5">
         <div class="heading" style="height: auto; font-size: 130px">Welcome to the Chess World</div>
@@ -226,15 +223,24 @@
     </div>
     <div id="unique" class="container mb-5">
         <h2 class="text-center section-title">3 unique things about chess</h2>
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="heading">Strategic Depth and Complexity <br></br> Chess is known for its strategic depth, which comes from the possible positions and variations. The game's rules allow for a endless number of moves and strategies, leading to unique and unpredictable games.</div>
+        <div class="card-group">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Strategic Depth and Complexity</h5>
+                    <p class="card-text">Chess is known for its strategic depth, which comes from the possible positions and variations. The game's rules allow for a endless number of moves and strategies, leading to unique and unpredictable games.</p>
+                </div>
             </div>
-            <div class="col-md-4">
-                <div class="heading">Unique Piece Movements <br></br> Each piece has a way of moving, adding to the strategic possibilities of the game. The queen can move any number of squares horizontally, vertically, or diagonally, while the knight moves in an "L" shape, jumping over other pieces.</div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Unique Piece Movements</h5>
+                    <p class="card-text">Each piece has a way of moving, adding to the strategic possibilities of the game. The queen can move any number of squares horizontally, vertically, or diagonally, while the knight moves in an "L" shape, jumping over other pieces.</p>
+                </div>
             </div>
-            <div class="col-md-4">
-                <div class="heading">Special Moves <br></br> Chess uses special moves like castling (moving king and rook across), pawn promotion (turning a pawn to a another piece, not a king). These moves add further strategic layers and opportunities for good and complex plays.</div>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special Moves</h5>
+                    <p class="card-text">Chess uses special moves like castling (moving king and rook across), pawn promotion (turning a pawn to a another piece, not a king). These moves add further strategic layers and opportunities for good and complex plays.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -522,7 +528,6 @@
         </div>
     </div>
     <p></p>
-
     <div id="faq" class="container mb-5">
         <h2 class="text-center section-title">🤔 FAQs About Chess</h2>
         <div class="row g-4">
