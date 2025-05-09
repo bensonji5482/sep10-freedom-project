@@ -27,12 +27,10 @@
 
         .card {
             background: linear-gradient(135deg, #d4e2fc, #f2f7ff);
+            padding: 20px;
         }
 
         .navbar {
-            /* Remove or comment out this line: */
-            /* position: sticky; */
-            /* Instead, let Bootstrap's .fixed-top apply position: fixed */
             top: 0;
             z-index: 1030;
             background-color: white;
@@ -70,8 +68,6 @@
                 border-radius: 10px;
                 padding: 1rem;
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-                /* REMOVE this line ↓ */
-                /* margin-top: 0.5rem; */
             }
 
             .navbar-collapse::-webkit-scrollbar {
@@ -531,32 +527,52 @@
     <div id="faq" class="container mb-5">
         <h2 class="text-center section-title">🤔 FAQs About Chess</h2>
         <div class="row g-4">
-            <div class="col-6 col-md-3">
-                <div class="heading"> How to begin a chess game <br></br> To begin a chess game, those who play white goes first and they can move their pieces. Pawns moves 2 spaces forward from the starting square then can only move one square. Rooks move up, down, left, right in an unlimited distance. The same goes for the bishops but only diagonally. The queen and knight was covered at the top in the 3 unique things section.</div>
+            <div class="card-group">
+                <div class="col-6 col-md-3">
+                    <div class="col">
+                        <div class="card">
+                            <h5 class="card-title">How to begin a chess game</h5>
+                            <p class="card-text">To begin a chess game, those who play white goes first and they can move their pieces. Pawns moves 2 spaces forward from the starting square then can only move one square. Rooks move up, down, left, right in an unlimited distance. The same goes for the bishops but only diagonally. The queen and knight was covered at the top in the 3 unique things section.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="col">
+                        <div class="card">
+                            <h5 class="card-title">What is en passant in chess</h5>
+                            <p class="card-text">The move en passant is like a passing move where when a player moves 2 spaces forward from their starting square and they move it next to one of your pawns you can take by moving that pawn behind the other one which is called en passant. It is a very rare move that is not played that often but only when there is a opportunity to play it but it is very optional to play that move.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="col">
+                        <div class="card">
+                            <h5 class="card-title">Tips to Improve when playing chess</h5>
+                            <p class="card-text">You can watch youtube or learn online for openings, mistakes often made or even traps at a certain level. I suggest you to try things like chessly (made by Gotham Chess if you want to see him more often), chessable, or chess.com for online sites. For youtube I highly sugesst Gotham Chess, he is a good player with many strategies to go with whilst playing.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="col">
+                        <div class="card">
+                            <h5 class="card-title">Best Openings to play and learn</h5>
+                            <p class="card-text">The best openings to play or learn when playing chess for white would be the "Scotch game", mainly to provide white with a quick attack plus the center and the "Queen's Gambit", this is mainly for being solid at the start to lead into other positions in the game. For black we have only the "Caro-Kann Defence" which is mostly for secure pawn structures and a counterplay.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-6 col-md-3">
-                <div class="heading">What is en passant in chess <br></br> The move en passant is like a passing move where when a player moves 2 spaces forward from their starting square and they move it next to one of your pawns you can take by moving that pawn behind the other one which is called en passant. It is a very rare move that is not played that often but only when there is a opportunity to play it but it is very optional to play that move.</div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="heading">Tips to Improve when playing chess <br></br> You can watch youtube or learn online for openings, mistakes often made or even traps at a certain level. I suggest you to try things like chessly (made by Gotham Chess if you want to see him more often), chessable, or chess.com for online sites. For youtube I highly sugesst Gotham Chess, he is a good player with many strategies to go with whilst playing.</div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="heading">Best Openings to play and learn <br></br> The best openings to play or learn when playing chess for white would be the "Scotch game", mainly to provide white with a quick attack plus the center and the "Queen's Gambit", this is mainly for being solid at the start to lead into other positions in the game. For black we have only the "Caro-Kann Defence" which is mostly for secure pawn structures and a counterplay.</div>
-            </div>
-            <p></p>
         </div>
-    </div>
-    <!-- Bootstrap Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Scroll Script -->
-    <script>
-        window.onscroll = function() {
-            const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("progress-bar").style.width = scrolled + "%";
-        };
-    </script>
+        <!-- Bootstrap Bundle -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Scroll Script -->
+        <script>
+            window.onscroll = function() {
+                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById("progress-bar").style.width = scrolled + "%";
+            };
+        </script>
 </body>
 
 </html>
