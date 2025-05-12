@@ -1,16 +1,16 @@
 # Presentation Plan
 
-## Hook
-* "What if you could train your brain the way athletes train their bodies? That’s exactly what chess does."
+## Hook:
+* What if there is a game that can devlop you mindset to a larger degree, well it would be the game of chess. This project explores the enduring appeal of chess and its evolution in the digital age.
 
-## Product
-* 
+## Product:
+* The website is designed to teach others about the fundamentals of chess, its unique strategies, and the technological advancements that continue to shape the game.
 
-## Process
-* 
+## Process:
+* This was mainly developed using HTML, CSS, and Bootstrap, incorporating research on various chess platforms and innovations to provide a comprehensive learning experience.
 
-## Conclusion
-* 
+## Conclusion:
+* Through creating "Chess World," I discovered how coding can bring the rich history and complexity of chess to life online, enhancing both my technical skills and appreciation for the game.
 
 <!-- EXAMPLE
 
