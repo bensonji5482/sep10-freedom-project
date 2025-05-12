@@ -1,7 +1,7 @@
 # Presentation Plan
 
 ## Hook
-* 
+* "What if you could train your brain the way athletes train their bodies? That’s exactly what chess does."
 
 ## Product
 * 
