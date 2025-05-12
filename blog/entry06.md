@@ -2,7 +2,7 @@
 ##### 3/9/2025
 
 ## FP Website
-I `finished` my website just on this week and I used as many thing as I learned to make my website solely about chess, I also added what I tinkered with my tool which was Aframe into my website as well as making edits to whatever I need when I have the time to do it and it was all thanks to my teacher.
+I `finished` my website just on this week and I used as many thing as I learned to make my website solely about chess, I also added what I tinkered with my tool which was Aframe into my website as well as making edits to whatever I need when I have the time to do it and it was all thanks to my teacher. The materials that I used are the aframe document [This thing](https://github.com/aframevr/aframe/blob/master/docs/components/geometry.md), the bootstrap website [This thing](getbootstrap.com), and lastly my notes that I took.
 
 ## EDP 
 I am currently on the process where I see my website and use strategeies to look and see what I have to fix, add, or change to the webiste to make it more enagaing or better to see and also around the stage where I can be able to communicate with the results as a masterpiece that I created. One example of that is how there was place holders boxes and it look somewhat strange so I changed it into a box to not let the cursor show it is loading something.
