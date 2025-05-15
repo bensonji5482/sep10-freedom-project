@@ -1,16 +1,30 @@
 # Presentation Plan
 
-## Hook
-* 
+## Hook:
+* Imagine a game that not only sharpens your mind but evolves with it—welcome to chess in the digital age. This project explores how the timeless game of strategy has adapted to modern technology, enhancing its impact on cognitive development and global reach.
 
-## Product
-* 
+## Product:
+* The website is designed to teach others about the fundamentals of chess, its unique strategies, and the digital advancements that continue to shape the game.
 
-## Process
-* 
+* Features:
+Clear, easy-to-navigate layout
+Custom styling and design
+Interactive elements that make learning engaging
 
-## Conclusion
-* 
+* Tools Used:
+HTML & CSS for structure and design
+Bootstrap for interactivity
+GitHub Pages for deployment
+
+## Process:
+* This was mainly developed using HTML, CSS, Bootstrap, and using research on many chess platforms and innovations to provide a good learning experience.
+* I will use some of my aframe code snippets to show the process as well as some of the website's code.
+
+## Conclusion:
+* What I Learned:
+Web Development Skills: I improved my skills in HTML, CSS, and JavaScript, especially how to structure a site and style it cleanly.
+Problem-Solving: I faced challenges with layout and responsiveness, and I learned how to debug issues using developer tools.
+Project Planning: I learned how to break a big idea into smaller steps and stay organized during the building process.
 
 <!-- EXAMPLE
 
