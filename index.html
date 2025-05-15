@@ -9,14 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <style>
         /* General Styling */
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: "Poppins", sans-serif;
             text-align: center;
-
         }
 
         html,
@@ -56,11 +51,6 @@
             color: #0d6efd;
         }
 
-        .btn-primary {
-            border-radius: 8px;
-            padding: 0.4rem 1rem;
-        }
-
         @media (max-width: 991.98px) {
             .navbar-collapse {
                 max-height: 70vh;
@@ -70,47 +60,6 @@
                 padding: 1rem;
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             }
-
-            .navbar-collapse::-webkit-scrollbar {
-                width: 6px;
-            }
-
-            .navbar-collapse::-webkit-scrollbar-track {
-                background: #f1f1f1;
-                border-radius: 10px;
-            }
-
-            .navbar-collapse::-webkit-scrollbar-thumb {
-                background: #c0c0c0;
-                border-radius: 10px;
-            }
-
-            .navbar-collapse::-webkit-scrollbar-thumb:hover {
-                background: #888;
-            }
-        }
-
-        .navbar.fixed-top {
-            top: 0;
-            z-index: 1030;
-            background-color: white;
-            padding: 0.7rem 1rem;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        /* Scroll Progress Bar */
-        #progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, #0d6efd, #00c6ff, #00ff90);
-            background-size: 300% 300%;
-            animation: gradientMove 6s ease infinite;
-            z-index: 2000;
-            transition: width 0.2s ease-out;
-            border-radius: 0 5px 5px 0;
         }
 
         /* Section Styling */
@@ -140,8 +89,7 @@
         }
 
         img:hover,
-        .img-placeholder:hover,
-        .placeholder {
+        .img-placeholder:hover {
             transform: scale(1.05);
         }
 
@@ -156,16 +104,6 @@
             height: 140%;
         }
 
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: fadeInUp 1s forwards;
-            animation-delay: 0.2s;
-        }
-
         /* Animations */
         @keyframes fadeInUp {
             to {
@@ -176,8 +114,6 @@
     </style>
 </head>
 
-    <!-- Scroll Progress Bar -->
-    <div id="progress-bar"></div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
         <div class="container">
@@ -565,15 +501,6 @@
         </div>
         <!-- Bootstrap Bundle -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Scroll Script -->
-        <script>
-            window.onscroll = function() {
-                const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                document.getElementById("progress-bar").style.width = scrolled + "%";
-            };
-        </script>
 </body>
 
 </html>
