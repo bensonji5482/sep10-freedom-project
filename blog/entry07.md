@@ -2,7 +2,7 @@
 ##### 5/29/2025
 
 ## Context
-After I finished my webiste which was called `Chess World` as shown  (here)[bensonji5482.github.io/sep10-freedom-project]
+After I finished my webiste which was called `Chess World` as shown [here](bensonji5482.github.io/sep10-freedom-project)
 
 ## Takeaways from in class presentations
 So one takeaway that I have from doing in-class presentations was that ...
