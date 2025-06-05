@@ -16,9 +16,9 @@ I used HTML, CSS, Bootstrap, and Github. I also chose to independently study **C
 
 ## Implications
 ##### PROS
-* 
+* Helps develop many life skills 
 ##### CONS
-* 
+* Many people might find it distracting 
 
 
 ## Blog
